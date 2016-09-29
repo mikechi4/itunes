@@ -15,7 +15,19 @@ angular.module('itunes').service('itunesService', function($http, $q){
         method: 'JSONP',
         url: itunesURL + artist + '&callback=JSON_CALLBACK'
       }).then(function(response) {
-        deferred.resolve(response.data.results);
+        var returnedArr = response.data.results;
+        var newArr = [];
+        for(i = 0; i < returnedArr.length; i++) {
+          newArr.push({
+            AlbumArt: returnedArr[i].artworkUrl30,
+            Artist: returnedArr[i].artistName,
+            Collection: returnedArr[i].collectionName,
+            CollectionPrice: returnedArr[i].collectionPrice,
+            Play: returnedArr[i].previewUrl,
+            Type: returnedArr[i].wrapperType
+          })
+        }
+        deferred.resolve(newArr);
       })
       return deferred.promise;
     }
