@@ -27,10 +27,12 @@ angular.module('itunes').controller('mainCtrl', function($scope, itunesService){
   //Also note that that method should be retuning a promise, so you could use .then in this function.
 
     //Code here
+
+
     $scope.getSongData = function(artist) {
       itunesService.getArtist(artist).then(function(dataFromService) {
         $scope.songData = dataFromService;
-        console.log('the song data ' + $scope.songData);
+
       })
     }
   //Check that the above method is working by entering a name into the input field on your web app, and then console.log the result
@@ -49,13 +51,12 @@ angular.module('itunes').controller('mainCtrl', function($scope, itunesService){
   //the iTunes API is going to give you a lot more details than ng-grid wants. Create a new array and then loop through the iTunes data pushing into your new array objects that look like the above data.
 
     //Code here
-  $scope.myFinalArray = [];
-  $scope.myFinalArray.push($scope.songData);
-  console.log($scope.myFinalArray);
+
+  // console.log("final array!! " + $scope.myFinalArray[0]);
 
 
   //Once you have that final data array, you simply need to put it on the scope (or more specifically on the scope as songData). Once you do this ($scope.songData = myFinalArray) then ng-grid will see that and populate the page.
 
     //Code here
-    $scope.gridOptions = {data : 'myFinalArray'};
+
 });

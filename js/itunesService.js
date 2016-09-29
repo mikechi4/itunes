@@ -19,7 +19,7 @@ angular.module('itunes').service('itunesService', function($http, $q){
         var newArr = [];
         for(i = 0; i < returnedArr.length; i++) {
           newArr.push({
-            AlbumArt: returnedArr[i].artworkUrl30,
+            AlbumArt: returnedArr[i].artworkUrl100,
             Artist: returnedArr[i].artistName,
             Collection: returnedArr[i].collectionName,
             CollectionPrice: returnedArr[i].collectionPrice,
