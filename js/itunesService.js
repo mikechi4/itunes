@@ -24,7 +24,8 @@ angular.module('itunes').service('itunesService', function($http, $q){
             Collection: returnedArr[i].collectionName,
             CollectionPrice: returnedArr[i].collectionPrice,
             Play: returnedArr[i].previewUrl,
-            Type: returnedArr[i].wrapperType
+            Type: returnedArr[i].kind,
+            Genre: returnedArr[i].primaryGenreName
           })
         }
         deferred.resolve(newArr);
